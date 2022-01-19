@@ -209,7 +209,7 @@ METHOD **POST** | [ENDPOINT](https://api.bursaukm.com/v1/purchase-detail) : `/v1
 ---
 
 ## Address 
-METHOD **POST** | [ENDPOINT](https://api.bursaukm.com/v1/address) : `/v1/address`
+METHOD **POST** | [ENDPOINT](https://api.bursaukm.com/v1/address) : ```/v1/address```
 > Data Alamat default untuk pengiriaman  
 
 ### Sample Data
