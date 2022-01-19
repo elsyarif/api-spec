@@ -255,3 +255,192 @@ https://api.bursaukm.com/v1/address
 |400999| Data tidak ditemukan|
 
 ---
+
+## Konfirmasi Pembayaran 
+METHOD **POST** | [ENDPOINT](https://api.bursaukm.com/v1/confirm-payment) : 
+```
+https://api.bursaukm.com/v1/confirm-payment
+```
+> Konfirmasi pembayaran, dengan upload gambar
+
+### Sample Data
+```
+{
+    "userToken" : "41c3c969c34578c45b5643a68292d49130c1241eb146d9823a7e87d379c98dd6",
+    "bank_id": 1,
+    "bank_number": "123456",
+    "total_paid": 1234,
+    "date": "2022-01-12",
+    "code_ref": "DG12",
+    "receipt": "",
+    "order_id": "ODR202201090000000001"
+}
+```
+-  bank_id : (Integer),
+-  bank_number : (Integer),
+-  total_paid : (Integer),
+-  date : (date),
+-  code_ref (String, 64 chars)
+-  receipt : (String, converted from BLOB to Base64)
+-  userToken (String, 64 chars)
+### Resoponse
+```
+{
+    "ResponseCode": "200000",
+    "ResponseStatus": "Success",
+    "ResponseMessage": "Data berhasil disimpan",
+    "ResponseData": ""
+}
+```
+## Table Response Data
+| Response Code | Status |
+| ----------- | ----------- |
+|200000| Data berhasil disimpan |
+|400000| Request Method tidak sesuai |
+|400001| Parameter tidak valid|
+|400003| Token tidak valid|
+|400005| Insert gagal|
+|400999| Data tidak ditemukan|
+
+---
+
+## Daftar Alamat User 
+METHOD **POST** | [ENDPOINT](https://api.bursaukm.com/v1/user/address) : 
+```
+https://api.bursaukm.com/v1/user/address
+```
+> Daftar Semua Alamat user
+
+### Sample Data
+```
+{
+    "userToken" : "41c3c969c34578c45b5643a68292d49130c1241eb146d9823a7e87d379c98dd6"
+}
+```
+
+
+### Resoponse
+```
+{
+    "ResponseCode": "200000",
+    "ResponseStatus": "Success",
+    "ResponseMessage": "Data ditemukan",
+    "ResponseData": [
+        {
+            "id": "3",
+            "user_address_label": "Kantor",
+            "user_address_name": "Syarif Hidayatulloh",
+            "user_address_phone": "089668132627",
+            "province_id": "36",
+            "regencies_id": "361",
+            "districts_id": "3601001",
+            "users_address": "Jl. Pabean Link. kaligandu Bujang Boros",
+            "postal_code": "32437",
+            "users_id": "15",
+            "info": "UTAMA"
+        },
+        {
+            "id": "2",
+            "user_address_label": "Rumah Teman",
+            "user_address_name": "Syarif H",
+            "user_address_phone": "081966813262",
+            "province_id": "36",
+            "regencies_id": "3673",
+            "districts_id": "3673060",
+            "users_address": "Jl. Pabean Link. Kaligandu B.B RT. 14 RW.06 Kec. Purwakarta Kel. Purwakarta Cilegon",
+            "postal_code": "42437",
+            "users_id": "15",
+            "info": null
+        }
+    ]
+}
+```
+## Table Response Data
+| Response Code | Status |
+| ----------- | ----------- |
+|200000| Data ditemukan |
+|200001| Data tidak ditemukan|
+|400000| Request Method tidak sesuai |
+|400001| Parameter tidak valid|
+|400003| Token tidak valid|
+
+---
+
+## Tambah Alamat User 
+METHOD **POST** | [ENDPOINT](https://api.bursaukm.com/v1/user/address/new) : 
+```
+https://api.bursaukm.com/v1/user/address/new
+```
+> Tambah Alamat user
+
+### Sample Data
+```
+{
+    "userToken" : "ba08d8869900c8fd43f4fb96bcba942570a299a998591dc66868952fe6947c2a",
+    "label": "Rumah", 
+    "address_name" : "PT TRI KARYA NUSANTARA", 
+    "address_phone": "81123456789", 
+    "province_id": "31", 
+    "regencies_id": "3175", 
+    "districts_id": "3175050", 
+    "users_address": "JL. BUNCIT RAYA NO 22, Kel. Pejaten Barat, Kec. Pasar Minggu, Kota Adm. Jakarta Selatan, Prop. DKI Jakarta", 
+    "postal_code": "42213"
+}
+```
+
+
+### Resoponse
+```
+{
+    "ResponseCode": "200000",
+    "ResponseStatus": "Success",
+    "ResponseMessage": "Data berhasil disimpan",
+    "ResponseData": ""
+}
+```
+## Table Response Data
+| Response Code | Status |
+| ----------- | ----------- |
+|200000| Data berhasil disimpan |
+|200001| Data tidak ditemukan|
+|400000| Request Method tidak sesuai |
+|400001| Parameter tidak valid|
+|400003| Token tidak valid|
+
+---
+
+## Set Default Alamat User 
+METHOD **POST** | [ENDPOINT](https://api.bursaukm.com/v1/user/address/new) : 
+```
+https://api.bursaukm.com/v1/user/address/new
+```
+> Set/Merubah default Alamat user
+
+### Sample Data
+```
+{
+    "userToken" : "ba08d8869900c8fd43f4fb96bcba942570a299a998591dc66868952fe6947c2a",
+    "address_id": 3
+}
+```
+
+
+### Resoponse
+```
+{
+    "ResponseCode": "200000",
+    "ResponseStatus": "Success",
+    "ResponseMessage": "Data berhasil disimpan",
+    "ResponseData": ""
+}
+```
+## Table Response Data
+| Response Code | Status |
+| ----------- | ----------- |
+|200000| Data berhasil disimpan |
+|400000| Request Method tidak sesuai |
+|400001| Parameter tidak valid|
+|400003| Token tidak valid|
+|400999| Data Gagal simpan|
+
+---
